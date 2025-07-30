@@ -65,8 +65,8 @@ export default function App() {
         language === "pt"
           ? "Projeto acadêmico que envolveu a criação de uma rede segura com VLANs, ACLs, NAT, testes entre sistemas Windows e Linux, e firewall configurado em roteador Cisco. Documentado em relatório técnico."
           : "Academic project involving the creation of a secure network with VLANs, ACLs, NAT, testing between Windows and Linux systems, and firewall configured on Cisco router. Documented in a technical report.",
-          imagem: process.env.PUBLIC_URL + "/UC_logo.png",
-          link: process.env.PUBLIC_URL + "/A3_Report.pdf",
+          imagem: "/UC_logo.png",
+          link: "/A3_Report.pdf",
       linguagens: ["Windows Server", "Ubuntu Linux", "Cisco CLI", "Firewall ACL", "NAT", "VLAN"],
     },
     {
