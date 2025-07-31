@@ -9,6 +9,7 @@ import Certificacoes from "./components/Certificacoes";
 import Skills from "./components/Skills";
 import Contato from "./components/Contato";
 import Sobre from "./components/Sobre";
+import Linguagens from "./components/Linguagens";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -120,6 +121,23 @@ export default function App() {
     },
   ];
 
+  const linguasFaladas = [
+    {
+      nomePt: "Português",
+      nomeEn: "Portuguese",
+      nivelPt: "Nativo",
+      nivelEn: "Native",
+      bandeira: "https://flagcdn.com/w40/br.png",
+    },
+    {
+      nomePt: "Inglês",
+      nomeEn: "English",
+      nivelPt: "Fluente",
+      nivelEn: "Fluent",
+      bandeira: "https://flagcdn.com/w40/gb.png",
+    },
+  ];
+
   const skills = [
     {
       titulo:
@@ -199,6 +217,7 @@ export default function App() {
         toggleLanguage={toggleLanguage}
       />
 
+
       {isWideScreen ? (
         <div ref={transitionRef} style={{ height: "220vh", position: "relative" }}>
           <Inicio
@@ -244,6 +263,8 @@ export default function App() {
         <section id="skills">
           <Skills skills={skills} language={language} />
         </section>
+
+        <Linguagens idioma={language} linguas={linguasFaladas} />
 
         <section id="contato">
           <Contato language={language} />
