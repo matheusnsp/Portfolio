@@ -3,11 +3,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html, body {
-  
   margin: 0;
   padding: 0;
   width: 100%;
@@ -19,7 +18,7 @@ html, body {
 }
 
 
-.hero-section {
+.inicio-section {
   position: relative;
   margin: 0 10%;
   /* padding-top: 20%; */
@@ -33,7 +32,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.hero-left {
+.inicio-left {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +97,7 @@ html, body {
 }
 
 
-.hero-content {
+.inicio-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,21 +107,21 @@ html, body {
 
 
 
-.hero-left h1 {
+.inicio-left h1 {
   font-size: 3rem;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
 }
 
-.hero-left p {
+.inicio-left p {
   font-size: 1.4rem;
   color: var(--text);
 }
 
 
 
-.hero-right {
+.inicio-right {
   position: absolute;
   flex: 1;
   display: flex;
@@ -130,7 +129,7 @@ html, body {
   align-items: center;
 }
 
-.hero-right img {
+.inicio-right img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -139,11 +138,11 @@ html, body {
   transition: transform 0.4s ease;
 }
 
-.hero-right img:hover {
+.inicio-right img:hover {
   transform: scale(1.05);
 }
 
-.hero-img {
+.inicio-img {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 20px var(--shadow);
@@ -338,59 +337,7 @@ html, body {
   user-select: none;
 }
 
-.info {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text);
-  margin: 0 auto;
-}
 
-
-.info p,
-.info a {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  
-  gap: 8px;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.info a:hover {
-  color: var(--primary);
-  text-decoration: underline;
-}
-
-
-.download-btn {
-  background-color: var(--primary);
-  padding: 10px 18px;
-  font-weight: 600;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.download-btn svg,
-.download-btn span {
-  color: inherit; /* herdam #fff corretamente */
-  transition: color 0.3s ease;
-}
-
-/* HOVER no tema CLARO e ESCURO: mesma cor de fundo */
-.app.light .download-btn:hover,
-.app.dark .download-btn:hover {
-  background-color: #4338ca;
-}
-
-.app.light .download-btn:hover {
-  color: #fff;
-}
-
-.app.dark .download-btn:hover {
-  color: #000;
-}
 
 /* Projetos */
 .projetos {
@@ -410,9 +357,6 @@ html, body {
   cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-}
 
 .card img {
   width: 100%;
@@ -421,7 +365,6 @@ html, body {
   /* background-color: var(--bg); cor de fundo para preencher os espaços */
   object-position: center; /* centraliza a imagem */
 }
-
 
 .card-body {
   padding: 20px 24px;
@@ -569,19 +512,41 @@ html, body {
   color: var(--text);
 }
 
+/* CONTATO */
+
+/* Contêiner principal que agrupa Contato + InfoSection */
+.contato-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Estica altura do container */
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  width: 80%;
+  max-width: 1200px;
+}
+
+
+/* CONTATO — ocupa 2/3 do espaço */
+.contato {
+  flex: 2;
+  min-width: 300px;
+}
+
+.contato h2 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--primary);
+}
+
 .contato p {
   font-size: 1.1rem;
   color: var(--text);
   margin-bottom: 16px;
 }
 
-.contato-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 80%;
-  margin: 0 auto; /* centraliza horizontalmente */
-}
+
 
 
 
@@ -613,28 +578,91 @@ html, body {
   outline: none;
 }
 
-.btn-enviar {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--primary);
-  color: #fff;
-  padding: 12px 20px;
-  font-weight: 700;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease;
+.mensagem-container {
+  position: relative; /* Permite posicionar o botão dentro */
 }
 
-.btn-enviar:hover {
+.btn-send-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-send-icon:hover {
   background-color: #4338ca;
 }
 
-.btn-enviar svg {
-  color: inherit;
+
+
+/* INFO SECTION — ocupa 1/3 do espaço */
+.info {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center;     /* Centraliza horizontalmente */
+  gap: 20px;
 }
+
+
+.info p,
+.info a {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.info a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.download-btn {
+  background-color: var(--primary);
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.download-btn svg,
+.download-btn span {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+/* Hover em tema claro e escuro */
+.app.light .download-btn:hover,
+.app.dark .download-btn:hover {
+  background-color: #4338ca;
+  text-decoration: none;
+}
+
+
 
 
 
@@ -643,7 +671,7 @@ html, body {
 }
 
 @media (min-width: 1440px) {
-  .hero-section{
+  .inicio-section{
     height: 50%;
   }
 
@@ -661,11 +689,9 @@ html, body {
     display: block;
     /* padding-top: 35% */
   }
-  .info{
-    padding-top: 40%;
-  }
 
-  .hero-section {
+
+  .inicio-section {
     /* padding-top: 20%; */
     display: flex;
     flex-direction: column;
@@ -673,13 +699,13 @@ html, body {
     /* height: auto; altura automática para telas menores */
   }
 
-  .hero-left{
+  .inicio-left{
     padding-top: 20%;
     width: 100%;
     text-align: center;
   }
 
-  .hero-right{
+  .inicio-right{
     padding-top: 37%;
   }
 
@@ -691,12 +717,11 @@ html, body {
     right: 0;
   }
 
-  .sobre {
-    padding-top: 150%;
+  .container{
+    padding-top: 37%;
   }
-  /* .info{
-    padding-top: 25%;
-  } */
+
+  
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -705,11 +730,11 @@ html, body {
     /* padding-top: 45%; */
   }
 
-  .info{
+  .container{
     padding-top: 50%;
   }
 
-  .hero-section {
+  .inicio-section {
     /* padding-top: 20%; */
     display: flex;
     flex-direction: column;
@@ -717,17 +742,21 @@ html, body {
     /* height: auto; altura automática para telas menores */
   }
 
-  .hero-left{
+  .inicio-img{
+    margin-top: 10%;
+  }
+
+  .inicio-left{
     padding-top: 20%;
     width: 100%;
     text-align: center;
   }
 
-  .hero-left h1 {
+  .inicio-left h1 {
     font-size: 2.5rem;
   }
 
-  .hero-right{
+  .inicio-right{
     padding-top: 38%;
   }
 
@@ -738,15 +767,36 @@ html, body {
     left: 0;
     right: 0;
   }
+  .contato-info-container {
+    flex-direction: column;
+    align-items: stretch; /* Faz os dois ocuparem toda largura */
+  }
+
+
+
+  .info {
+    justify-content: flex-start; /* Alinha topo no mobile */
+    align-items: center;         /* Centraliza horizontalmente */
+    margin-top: 20px;            /* Espaço entre contato e info */
+  }
+  
 }
 
 @media(max-width: 767px) {
+  body{
+    overflow-x: hidden;
+  }
+
+  .container{
+    padding-top: 60%;
+  }
+
   .sobre-b2 {
     display: block;
     /* padding-top: 70%; */
   }
 
-  .hero-section {
+  .inicio-section {
     /* padding-top: 20%; */
     display: flex;
     flex-direction: column;
@@ -754,21 +804,22 @@ html, body {
     /* height: auto; altura automática para telas menores */
   }
 
-  .hero-left{
+  .inicio-left{
     padding-top: 30%;
     width: 100%;
     text-align: center;
   }
 /* 
-  .hero-left h1 {
+  .inicio-left h1 {
     font-size: 2.0rem;
   } */
 
-  .hero-right{
+  .inicio-right{
     padding-top: 60%;
   }
 
-  .hero-right img {
+  .inicio-right img {
+    
     width: 250px !important;
     height: 250px !important;
   }
@@ -789,17 +840,29 @@ html, body {
     font-size: 1.2rem;
   }
 
-  .info{
-    padding-top: 75%;
-
-  }
-
   .skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 22px 20px;
     /* justify-content: center; */
   }
+
+  .contato-info-container {
+    flex-direction: column;
+    align-items: stretch; /* Faz os dois ocuparem toda largura */
+  }
+
+  .contato,
+  .info {
+    width: 100%;
+  }
+
+  .info {
+    justify-content: flex-start; /* Alinha topo no mobile */
+    align-items: center;         /* Centraliza horizontalmente */
+    margin-top: 20px;            /* Espaço entre contato e info */
+  }
+
 
 }
 
@@ -820,13 +883,19 @@ html, body {
     object-fit: contain;
     margin-left: -10px;
   }
+
+  .container{
+    padding-top: 70%;
+  }
+
+  
   
 }
 
 @media (max-width: 450px) {
   /* Oculta o menu mobile por padrão */
-  .hero-right{
-    padding-top: 70%
+  .inicio-right{
+    padding-top: 67%
     }
     .lang-toggle {
       display: block;
@@ -834,21 +903,30 @@ html, body {
       margin-left: -130px;
       /* sem margem negativa */
     }
+
+    .inicio-img{
+      width: 300px !important;
+      height: 200px !important;
+    }
     
     .theme-toggle {
       display: block;
       object-fit: contain;
       margin-left: -10px;
     }
+    .btn-enviar {
+      display: flex;
+      margin: 10px auto 0;
+    }
 }
 
 @media (max-width: 375px) {
   /* Oculta o menu mobile por padrão */
-  .hero-right{
+  .inicio-right{
     padding-top: 75%
   }
 
-  .hero-right img {
+  .inicio-right img {
     width: 200px !important;
     height: 200px !important;
   }
@@ -871,27 +949,29 @@ html, body {
     object-fit: contain;
     margin-left: -10px;
   }
+
 }
 
 @media(max-width: 320px) {
-  .nav-icons {
-    display: none;
-  }
   .lang-toggle {
-    display: none
+    display: block;
+    object-fit: contain;
+    margin-left: -100px;
+    /* sem margem negativa */
   }
   
   .theme-toggle {
-    display: none
+    display: block;
+    object-fit: contain;
+    margin-left: -10px;
   }
+
+  .contato-info-container {
+    width: 80%;
+  }
+
+  .contato {
+    min-width: 200px;
+  }
+  
 }
-
-
-
-/* @media (max-width: 425px) {
-  .lang-toggle {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    min-width: 40px;
-  }
-} */

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && rm -rf dist/.git && cd dist && git init && git checkout -b gh-pages && git add . && git commit -m 'deploy' && git push -f https://github.com/matheusnsp/Portfolio.git gh-pages && cd .."
+
   },
   "dependencies": {
     "framer-motion": "^12.23.6",

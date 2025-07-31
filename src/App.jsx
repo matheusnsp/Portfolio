@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import "./index.css";
 import Inicio from "./components/Inicio";
 import Header from "./components/Header";
-import InfoSection from "./components/InfoSection";
 import Projetos from "./components/Projetos";
 import Experiencia from "./components/Experiencia";
 import Certificacoes from "./components/Certificacoes";
@@ -65,8 +64,8 @@ export default function App() {
         language === "pt"
           ? "Projeto acadêmico que envolveu a criação de uma rede segura com VLANs, ACLs, NAT, testes entre sistemas Windows e Linux, e firewall configurado em roteador Cisco. Documentado em relatório técnico."
           : "Academic project involving the creation of a secure network with VLANs, ACLs, NAT, testing between Windows and Linux systems, and firewall configured on Cisco router. Documented in a technical report.",
-          imagem: "/UC_logo.png",
-          link: "/A3_Report.pdf",
+          imagem: `${import.meta.env.BASE_URL}UC_logo.png`,
+          link: `${import.meta.env.BASE_URL}A3_Report.pdf`,
       linguagens: ["Windows Server", "Ubuntu Linux", "Cisco CLI", "Firewall ACL", "NAT", "VLAN"],
     },
     {
@@ -91,8 +90,11 @@ export default function App() {
         language === "pt"
           ? "Este site foi criado para apresentar minha trajetória profissional, projetos, certificações e habilidades de forma interativa e moderna. Utilizei React, Framer Motion para animações suaves, e adaptei todo o layout para funcionar em modo claro/escuro. O site também é responsivo e otimizado para diferentes dispositivos."
           : "This website was created to showcase my professional journey, projects, certifications, and skills in an interactive and modern way. I used React, Framer Motion for smooth animations, and adapted the entire layout for light/dark mode. The site is also responsive and optimized for various devices.",
-      imagem: darkMode ? "/portfolioB.png" : "/portfolioL.png",
-      link: "https://matheusnsp.github.io",
+          imagem: darkMode 
+          ? `${import.meta.env.BASE_URL}portfolioB.png` 
+          : `${import.meta.env.BASE_URL}portfolioL.png`,
+        
+      link: "https://github.com/matheusnsp/Portfolio",
       linguagens: ["React", "Framer Motion", "CSS", "HTML", "JavaScript"],
     },
   ];
@@ -225,7 +227,6 @@ export default function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <InfoSection language={language} />
         <Sobre language={language} />
 
         <section id="projetos">

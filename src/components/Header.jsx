@@ -45,7 +45,11 @@ export default function Header({ darkMode, toggleTheme, language, toggleLanguage
   return (
     <header className="header">
       <div className="header-left">
-        <img src="/logo.png" alt="MNSP Logo" className="logo-img" />
+      <img src={`${import.meta.env.BASE_URL}logo.png`} className="logo-img" />
+
+
+
+
       </div>
 
       <div className="header-right">

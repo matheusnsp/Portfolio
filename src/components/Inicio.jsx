@@ -4,10 +4,10 @@ import { Typewriter } from "react-simple-typewriter";
 export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, language }) {
   return (
     <motion.section
-      className="hero-section"
+      className="inicio-section"
       style={{ position: "sticky", top: 0, zIndex: 10 }}
     >
-      <motion.div className="hero-left">
+      <motion.div className="inicio-left">
         <motion.div
           className="texto-inicial"
           style={{ opacity: textOpacity }}
@@ -71,11 +71,11 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
         </motion.div>
       </motion.div>
 
-      <motion.div className="hero-right" style={{ x: imgX }}>
+      <motion.div className="inicio-right" style={{ x: imgX }}>
       <motion.img
-        src="/foto.jpg"
+        src={`${import.meta.env.BASE_URL}foto.jpg`}
         alt="Matheus Neves"
-        className="hero-img"
+        className="inicio-img"
         style={{ width: imgSize, height: imgSize }}
       />
     </motion.div>

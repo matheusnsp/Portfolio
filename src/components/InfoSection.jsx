@@ -26,12 +26,6 @@ export default function InfoSection({ language }) {
         </a>
       </div>
       <div className="info-right">
-        <p>
-          <strong>{language === "pt" ? "Idade:" : "Age:"}</strong> 21 {language === "pt" ? "anos" : "years"}
-        </p>
-        <p>
-          <strong>{language === "pt" ? "Nacionalidade:" : "Nationality:"}</strong> {language === "pt" ? "Brasileiro" : "Brazilian"}
-        </p>
         <a href="/cv-matheus-neves.pdf" download className="download-btn">
           <Download size={16} />
           <span>{language === "pt" ? "Baixar Currículo" : "Download Resume"}</span>
