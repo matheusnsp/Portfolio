@@ -10,7 +10,7 @@ Bem-vindo ao meu portfólio profissional! Este site foi desenvolvido para aprese
 
 ## 📸 Captura de Tela
 
-![Screenshot](./public/portfolioL.png)
+![Screenshot](./public/portfolioB.png)
 
 ---
 
