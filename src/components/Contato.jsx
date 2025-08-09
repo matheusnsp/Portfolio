@@ -93,7 +93,11 @@ export default function Contato({ language }) {
           </a>
         </div>
         <div className="info-right">
-          <a href="/cv-matheus-neves.pdf" download className="download-btn">
+          <a
+            href={`${import.meta.env.BASE_URL}cv-matheus-neves.pdf`}
+            download
+            className="download-btn"
+          >
             <Download size={16} />
             <span>{language === "pt" ? "Baixar Currículo" : "Download Resume"}</span>
           </a>
