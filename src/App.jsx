@@ -78,8 +78,10 @@ export default function App() {
         language === "pt"
           ? "Desenvolvi o site oficial da Igreja INV Botafogo com o objetivo de centralizar informações institucionais e facilitar o acesso de novos visitantes à igreja. A página foi construída com HTML, CSS e JavaScript puro, com design responsivo e integração com redes sociais e ferramentas de localização."
           : "Developed the official website of INV Botafogo Church to centralize institutional information and facilitate new visitors' access. The page was built with pure HTML, CSS, and JavaScript, featuring responsive design and integration with social media and location tools.",
-      imagem: "https://invbotafogo.github.io/invbotafogo/assets/images/logo.png",
-      link: "https://invbotafogo.github.io/invbotafogo/index.html",
+      imagem: darkMode
+      ?`${import.meta.env.BASE_URL}logo_invbB.png`
+      :`${import.meta.env.BASE_URL}logo_invbL.png`,
+      link: "https://invbotafogo.com.br",
       linguagens: ["HTML", "CSS", "JavaScript"],
     },
     {
