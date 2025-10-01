@@ -432,9 +432,10 @@ html, body {
   border-color: var(--primary);
 }
 
+
 /* Certificações */
 .secao ul {
-  list-style-type: none;
+  /* list-style-type: none; */
   font-size: 1.1rem;
   color: var(--text);
   display: flex;
@@ -1009,4 +1010,28 @@ html, body {
     min-width: 200px;
   }
   
+}
+
+.experiencia-lista {
+  padding: 0 !important;         /* remove padding padrão da ul */
+  margin: 0 !important;          /* remove margem padrão da ul */
+}
+
+
+.experiencia-lista li {
+  box-shadow: none !important; /* remove sombra */
+  margin: 0 0 2px 40px !important;          /* margem: top 0, right 0, bottom 2px, left 40px */
+  padding: 2px 0 !important; 
+  text-align: left !important;
+}
+
+/* Desativa hover */
+.experiencia-lista li:hover {
+  background-color: var(--bg) !important;
+  color: inherit !important;
+  cursor: default !important;
+}
+
+.certificacoes li {
+  list-style-type: none !important;
 }

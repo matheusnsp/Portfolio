@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function Certificacoes({ certificacoes, language }) {
   return (
     <motion.section
-      className="secao"
+      className="secao certificacoes"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
