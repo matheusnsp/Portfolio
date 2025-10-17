@@ -93,14 +93,15 @@ export default function Contato({ language }) {
           </a>
         </div>
         <div className="info-right">
-          <a
-            href={`${import.meta.env.BASE_URL}cv-matheus-neves.pdf`}
-            download
-            className="download-btn"
-          >
-            <Download size={16} />
-            <span>{language === "pt" ? "Baixar Currículo" : "Download Resume"}</span>
-          </a>
+        <a
+          href={`${import.meta.env.BASE_URL}${language === "pt" ? "cv-matheus-neves.pdf" : "resume-matheus-neves.pdf"}`}
+          download
+          className="download-btn"
+        >
+          <Download size={16} />
+          <span>{language === "pt" ? "Baixar Currículo" : "Download Resume"}</span>
+        </a>
+
         </div>
       </div>
     </motion.section>

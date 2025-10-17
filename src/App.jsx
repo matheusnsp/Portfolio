@@ -82,7 +82,7 @@ export default function App() {
       ?`${import.meta.env.BASE_URL}logo_invbB.png`
       :`${import.meta.env.BASE_URL}logo_invbL.png`,
       link: "https://invbotafogo.com.br",
-      linguagens: ["HTML", "CSS", "JavaScript"],
+      linguagens: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     },
     {
       titulo:
