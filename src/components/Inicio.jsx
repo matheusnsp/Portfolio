@@ -44,8 +44,9 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
     <>
       <p>
         Sou Matheus Neves, desenvolvedor de software com foco em aplicações modernas e seguras. 
-        Tenho 21 anos, sou formado em Engenharia de Software com ênfase em Cibersegurança, 
-        e sou apaixonado por tecnologia, aprendizado contínuo e desafios criativos.
+        Tenho 21 anos, sou formado em Engenharia de Software com ênfase em Cibersegurança,
+        pela Universidade de Canberra, na Austrália, e sou apaixonado por tecnologia, 
+        aprendizado contínuo e desafios criativos.
       </p>
       <br />
       <p>
@@ -64,7 +65,8 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
       <p>
         I'm Matheus Neves, a software developer focused on modern and secure applications. 
         I'm 21 years old, graduated in Software Engineering with a major in Cybersecurity, 
-        and passionate about technology, continuous learning, and creative challenges.
+        from the University of Canberra, in Australia, and passionate about technology,
+        continuous learning, and creative challenges.
       </p>
       <br />
       <p>

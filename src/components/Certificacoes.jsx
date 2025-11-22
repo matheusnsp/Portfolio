@@ -10,11 +10,20 @@ export default function Certificacoes({ certificacoes, language }) {
       viewport={{ once: true }}
     >
       <h2>{language === "pt" ? "Certificações" : "Certifications"}</h2>
-      <ul>
+
+      <ul className="lista-certificacoes">
         {certificacoes.map((c, i) => (
-          <li key={i}>
+          <motion.li
+            key={i}
+            className="item-certificacao"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: i * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.1 }}
+          >
             {c.nome} – {c.ano}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </motion.section>

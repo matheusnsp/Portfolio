@@ -104,7 +104,15 @@ export default function App() {
 
   const certificacoes = [
     {
-      nome: language === "pt" ? "SC-900 (Microsoft)" : "SC-900 (Microsoft)",
+      nome: language === "pt" 
+        ? "Curso de Oratória e Comunicação (Clube da Fala)"
+        : "Public Speaking and Communication Course (Clube da Fala)",
+      ano: 2025,
+    },
+    {
+      nome: language === "pt" 
+        ? "SC-900 (Microsoft)" 
+        : "SC-900 (Microsoft)",
       ano: 2025,
     },
     {
@@ -121,6 +129,7 @@ export default function App() {
           : "Introduction to Mobile Development (Meta)",
       ano: 2023,
     },
+    
   ];
 
   const linguasFaladas = [
@@ -138,6 +147,7 @@ export default function App() {
       nivelEn: "Fluent",
       bandeira: "https://flagcdn.com/w40/gb.png",
     },
+    
   ];
 
   const skills = [

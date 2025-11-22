@@ -4,29 +4,30 @@ export default function Projetos({ projetos, language }) {
   return (
     <motion.section
       className="secao"
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      transition={{ staggerChildren: 0.2 }}
     >
       <h2>{language === "pt" ? "Projetos" : "Projects"}</h2>
+
       <div className="projetos">
         {projetos.map((proj, i) => (
           <motion.div
             key={i}
             className="card"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.5, delay: i * 0.2 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
           >
             <img src={proj.imagem} alt={proj.titulo} />
+
             <div className="card-body">
               <h3>{proj.titulo}</h3>
               <p>{proj.descricao}</p>
 
-              {/* Mostra as linguagens */}
               {proj.linguagens && (
                 <div className="linguagens">
                   {proj.linguagens.map((lang, index) => (
@@ -37,10 +38,9 @@ export default function Projetos({ projetos, language }) {
                 </div>
               )}
 
-            <a href={proj.link} target="_blank" rel="noreferrer">
-              {language === "pt" ? "Ver mais" : "See more"}
-            </a>
-
+              <a href={proj.link} target="_blank" rel="noreferrer">
+                {language === "pt" ? "Ver mais" : "See more"}
+              </a>
             </div>
           </motion.div>
         ))}

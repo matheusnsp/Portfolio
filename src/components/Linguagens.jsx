@@ -10,15 +10,27 @@ export default function Linguagens({ idioma, linguas }) {
       viewport={{ once: true }}
     >
       <h2>{idioma === "pt" ? "Línguas" : "Languages"}</h2>
+
       <ul className="lista-linguas">
         {linguas.map((l, i) => (
-          <li key={i} className="item-lingua">
-            <img src={l.bandeira} alt={idioma === "pt" ? l.nomePt : l.nomeEn} />
+          <motion.li
+            key={i}
+            className="item-lingua"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: i * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.1 }}
+          >
+            <img
+              src={l.bandeira}
+              alt={idioma === "pt" ? l.nomePt : l.nomeEn}
+            />
             <span>
               {idioma === "pt" ? l.nomePt : l.nomeEn} –{" "}
               {idioma === "pt" ? l.nivelPt : l.nivelEn}
             </span>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </motion.section>

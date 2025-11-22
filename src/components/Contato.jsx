@@ -74,9 +74,12 @@ export default function Contato({ language }) {
       {/* InfoSection embutido */}
       <div className="info">
         <div className="info-left">
-          <p>
+          <a 
+            href="mailto:matheusnevessp@gmail.com" 
+            target="_blank"
+            rel="noreferrer">
             <Mail size={18} /> matheusnevessp@gmail.com
-          </p>
+          </a>
           <a
             href="https://linkedin.com/in/matheusnsp"
             target="_blank"

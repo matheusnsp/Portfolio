@@ -23,7 +23,7 @@ export default function Skills({ skills }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileHover={{ scale: 1.1}}
               >
                 <img src={skill.img} alt={skill.name} title={skill.name} />
                 <span>{skill.name}</span>
