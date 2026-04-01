@@ -100,6 +100,22 @@ export default function App() {
       link: "https://github.com/matheusnsp/Portfolio",
       linguagens: ["React", "Framer Motion", "CSS", "HTML", "JavaScript"],
     },
+    {
+      titulo:
+        language === "pt"
+          ? "Dash - Dashboard Financeiro"
+          : "Dash - Financial Dashboard",
+      descricao:
+        language === "pt"
+          ? "Aplicação Full Stack de gestão financeira pessoal com foco em segurança e performance. Implementei autenticação segura e Row Level Security (RLS) via Supabase para isolamento de dados, interface responsiva com JavaScript Vanilla e deploy automatizado via Netlify."
+          : "Full Stack personal finance management application focused on security and performance. I implemented secure authentication and Row Level Security (RLS) via Supabase for data isolation, a responsive interface with Vanilla JavaScript, and automated deployment via Netlify.",
+      imagem: darkMode 
+        ? `${import.meta.env.BASE_URL}dash.jpeg` 
+        : `${import.meta.env.BASE_URL}dash.jpeg`,
+        
+      link: "https://github.com/matheusnsp/Dash",
+      linguagens: ["JavaScript", "Supabase", "PostgreSQL", "HTML", "CSS", "Netlify"],
+    },
   ];
 
   const certificacoes = [
