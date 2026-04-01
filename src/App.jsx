@@ -181,6 +181,31 @@ export default function App() {
     },
     {
       titulo:
+        language === "pt" ? "Cibersegurança e Infraestrutura" : "Cybersecurity and Infrastructure",
+      itens: [
+        {
+          name: "Linux",
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+        },
+        {
+          name: "Wireshark",
+          // Link alternativo estável para o Wireshark colorido
+          img: "https://cdn.simpleicons.org/wireshark/1679A7",
+        },
+        {
+          name: "Networking",
+          // O ícone do SSH do Devicon é colorido e representa bem a área de Redes/Infra
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ssh/ssh-original.svg",
+        },
+        {
+          name: "IAM",
+          // O ícone do Azure do Devicon é colorido e remete à sua certificação SC-900 (Security/Identity)
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+        },
+      ],
+    },
+    {
+      titulo:
         language === "pt" ? "Frameworks e Bibliotecas" : "Frameworks and Libraries",
       itens: [
         {
@@ -205,16 +230,20 @@ export default function App() {
           img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
         },
         {
-          name: "Linux",
-          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+          name: "Docker",
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        },
+        {
+          name: "Supabase",
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+        },
+        {
+          name: "Netlify",
+          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg",
         },
         {
           name: "VS Code",
           img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-        },
-        {
-          name: "Docker",
-          img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
         },
       ],
     },

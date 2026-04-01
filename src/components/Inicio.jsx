@@ -39,48 +39,46 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
   id="sobre"
   style={{ opacity: sobreOpacity }}
 >
-  <h2>{language === "pt" ? "Sobre mim" : "About Me"}</h2>
-  {language === "pt" ? (
-    <>
-      <p>
-        Sou Matheus Neves, desenvolvedor de software com foco em aplicações modernas e seguras. 
-        Tenho 21 anos, sou formado em Engenharia de Software com ênfase em Cibersegurança,
-        pela Universidade de Canberra, na Austrália, e sou apaixonado por tecnologia, 
-        aprendizado contínuo e desafios criativos.
-      </p>
-      <br />
-      <p>
-        Minha experiência envolve análise de tráfego de rede, segurança da informação e desenvolvimento de sistemas, 
-        além de projetos que integram IA generativa, sistemas distribuídos e aplicações web responsivas. 
-        Trabalho bem em equipe ágil (Scrum), versionamento com GitHub e priorizo soluções escaláveis.
-      </p>
-      <br />
-      <p>
-        Busco contribuir com soluções inovadoras que unam tecnologia, segurança e criatividade, 
-        comunicando-me com eficácia em português e inglês, após 4 anos de residência na Austrália.
-      </p>
-    </>
-  ) : (
-    <>
-      <p>
-        I'm Matheus Neves, a software developer focused on modern and secure applications. 
-        I'm 21 years old, graduated in Software Engineering with a major in Cybersecurity, 
-        from the University of Canberra, in Australia, and passionate about technology,
-        continuous learning, and creative challenges.
-      </p>
-      <br />
-      <p>
-        My experience includes network traffic analysis, information security, and system development, 
-        as well as projects involving generative AI, distributed systems, and responsive web applications. 
-        I thrive in agile teamwork (Scrum), code versioning with GitHub, and building scalable solutions.
-      </p>
-      <br />
-      <p>
-        My goal is to contribute to innovative solutions that combine technology, security, and creativity, 
-        with strong communication in both Portuguese and English after 4 years of living in Australia.
-      </p>
-    </>
-  )}
+<h2>{language === "pt" ? "Sobre mim" : "About Me"}</h2>
+{language === "pt" ? (
+  <>
+    <p>
+      Sou Matheus Neves, engenheiro de software com foco em infraestrutura e segurança cibernética. 
+      Tenho 22 anos, sou formado pela <strong>University of Canberra, na Austrália</strong>, 
+      e busco resolver desafios técnicos complexos através de soluções resilientes e escaláveis.
+    </p>
+    <br />
+    <p>
+      Minha experiência atual envolve a <strong>gestão de infraestrutura de TI e segurança da informação na Cruz Vermelha Brasileira</strong>, 
+      atuando na análise de tráfego de rede, administração de ativos e implementação de protocolos de acesso (IAM). 
+      Além disso, desenvolvo aplicações full-stack com foco em proteção de dados e sistemas distribuídos.
+    </p>
+    <br />
+    <p>
+      Trabalho bem em equipes ágeis (Scrum), domino versionamento com GitHub e priorizo a eficiência operacional. 
+      Comunico-me com fluência em português e inglês, após 4 anos de residência na Austrália.
+    </p>
+  </>
+) : (
+  <>
+    <p>
+      I am Matheus Neves, a Software Engineer focused on infrastructure and cybersecurity. 
+      I am 22 years old and a graduate of the <strong>University of Canberra, Australia</strong>, 
+      driven by solving complex technical challenges through resilient and scalable solutions.
+    </p>
+    <br />
+    <p>
+      My current role involves <strong>managing IT infrastructure and information security at the Brazilian Red Cross</strong>, 
+      where I handle network traffic analysis, asset management, and Identity and Access Management (IAM) protocols. 
+      I also develop full-stack applications with a strong emphasis on data protection and distributed systems.
+    </p>
+    <br />
+    <p>
+      I thrive in agile environments (Scrum), am proficient in version control with GitHub, and prioritize operational efficiency. 
+      I am fully bilingual in Portuguese and English, following 4 years of living and studying in Australia.
+    </p>
+  </>
+)}
 </motion.div>
 
       </motion.div>
