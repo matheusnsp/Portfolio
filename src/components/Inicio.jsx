@@ -2,6 +2,23 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, language }) {
+
+  // Função para calcular a idade dinamicamente
+  const calcularIdade = (dataNascimento) => {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+
+    // Ajusta se ainda não fez aniversário no ano corrente
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+      idade--;
+    }
+    return idade;
+  };
+
+  const idade = calcularIdade("2004-02-09");
+
   return (
     <motion.section
       className="inicio-section"
@@ -44,7 +61,7 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
   <>
     <p>
       Sou Matheus Neves, engenheiro de software com foco em infraestrutura e segurança cibernética. 
-      Tenho 22 anos, sou formado pela <strong>University of Canberra, na Austrália</strong>, 
+      Tenho <strong>{idade} anos</strong>, sou formado pela <strong>University of Canberra, na Austrália</strong>, 
       e busco resolver desafios técnicos complexos através de soluções resilientes e escaláveis.
     </p>
     <br />
@@ -63,7 +80,7 @@ export default function Inicio({ imgSize, imgX, textOpacity, sobreOpacity, langu
   <>
     <p>
       I am Matheus Neves, a Software Engineer focused on infrastructure and cybersecurity. 
-      I am 22 years old and a graduate of the <strong>University of Canberra, Australia</strong>, 
+      I am <strong>{idade} years old</strong> and a graduate of the <strong>University of Canberra, Australia</strong>, 
       driven by solving complex technical challenges through resilient and scalable solutions.
     </p>
     <br />
