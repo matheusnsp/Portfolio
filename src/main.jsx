@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+// import App from './App.jsx'
+import App from "./_novo/PreviewNovo.jsx";
 import './index.css' // ← IMPORTANTE
 
 ReactDOM.createRoot(document.getElementById('root')).render(
