@@ -11,6 +11,7 @@ import IdiomasNovo from "./components/IdiomasNovo";
 import ContatoNovo from "./components/ContatoNovo";
 import CursorCustom from "./components/CursorCustom";
 import HeaderNovo from "./components/HeaderNovo";
+import SnakeGame from "./components/SnakeGame";
 
 
 export default function PreviewNovo() {
@@ -32,6 +33,7 @@ export default function PreviewNovo() {
 
   return (
     <div className={"nv-root" + (darkMode ? "" : " nv-light")}>
+          <SnakeGame />
           <CursorCustom />
           <HeaderNovo
       language={language}

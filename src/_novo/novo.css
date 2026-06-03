@@ -308,7 +308,7 @@ html{scroll-behavior:smooth}
   .nv-root .nv-chip,.nv-root .nv-contact,.nv-root .nv-ctrl{cursor:none}
   .nv-cursor-ring,.nv-cursor-dot{
     position:fixed;top:0;left:0;
-    border-radius:50%;pointer-events:none;z-index:9999;
+    border-radius:50%;pointer-events:none;z-index:100001;
     margin-left:-16px;margin-top:-16px;
     will-change:transform;
   }
@@ -420,4 +420,10 @@ html{scroll-behavior:smooth}
   .nv-hero-inner h1{font-size:1.7rem}
   .nv-typed{margin:0 auto}
   .nv-hero{padding:4rem 4vw 3rem}
+}
+
+/* cursor escondido em TODA a página (não só dentro do .nv-root) */
+@media (pointer:fine){
+  body{cursor:none}
+  body *{cursor:none}
 }
