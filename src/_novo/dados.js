@@ -62,7 +62,7 @@ export const skills = [
 export const experiencias = [
   {
     atual:true,
-    cargo:{pt:"Analista de Infraestrutura e Segurança (Voluntário)",en:"IT Infrastructure & Security Analyst (Volunteer)"},
+    cargo:{pt:"Coordenador de Infraestrutura e Segurança (Voluntário)",en:"IT Infrastructure & Security Coordinator (Volunteer)"},
     periodo:{pt:"Mar 2026 – Presente",en:"Mar 2026 – Present"},
     org:{pt:"Cruz Vermelha Brasileira — Rio de Janeiro",en:"Brazilian Red Cross — Rio de Janeiro"},
     techs:["Redes L2/L3","IAM","CFTV IP","Segurança de Ativos","Hardware"],
