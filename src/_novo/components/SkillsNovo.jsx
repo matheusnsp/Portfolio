@@ -3,21 +3,27 @@ import { motion, useInView } from "framer-motion";
 
 function Stat({ s, language }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const inView = useInView(ref, { once: true, amount: 0.3 });
   const [n, setN] = useState(0);
+  const alvo = Number(s.alvo) || 0; // garante número, nunca undefined/NaN
+
   useEffect(() => {
     if (!inView) return;
     const reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduz) { setN(s.alvo); return; }
-    let raf; const dur = 1100, t0 = performance.now();
+    if (reduz || alvo === 0) { setN(alvo); return; }
+    let raf;
+    const dur = 1100;
+    const t0 = performance.now();
     const step = (t) => {
       const p = Math.min((t - t0) / dur, 1);
-      setN(Math.round((1 - Math.pow(1 - p, 3)) * s.alvo));
+      setN(Math.round((1 - Math.pow(1 - p, 3)) * alvo));
       if (p < 1) raf = requestAnimationFrame(step);
+      else setN(alvo); // garante o valor final exato
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [inView, s.alvo]);
+  }, [inView, alvo]);
+
   return (
     <motion.div className="nv-stat" ref={ref}
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
