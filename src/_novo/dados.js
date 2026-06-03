@@ -27,6 +27,13 @@ export const projetos = [
     img:{dark:"dash.jpeg",light:"dash.jpeg"},
     stack:["JavaScript","Supabase","PostgreSQL","Netlify","HTML","CSS"],
     link:"https://github.com/matheusnsp/Dash", linkLabel:{pt:"código",en:"code"}
+  },
+  {
+    titulo:{pt:"Catia Poggian — Estrategista de Marca",en:"Catia Poggian — Brand Strategist"},
+    descricao:{pt:"Site institucional para consultora e mentora de imagem, apresentando serviços, método e captação de leads. Design responsivo bilíngue com newsletter e integração a redes sociais.",en:"Institutional website for an image consultant and mentor, showcasing services, methodology, and lead capture. Responsive bilingual design with newsletter and social media integration."},
+    img:{dark:"catia.png",light:"catia.png"},
+    stack:["HTML","CSS","JavaScript","Bootstrap", "Vercel"],
+    link:"https://www.catiapoggian.com", linkLabel:{pt:"ao vivo",en:"live"}
   }
 ];
 
