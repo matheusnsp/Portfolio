@@ -22,6 +22,13 @@ export const projetos = [
     link:"https://github.com/matheusnsp/Portfolio", linkLabel:{pt:"código",en:"code"}
   },
   {
+    titulo:{pt:"NetScan — Ferramenta de Reconhecimento para Pentest",en:"NetScan — Pentest Reconnaissance Tool"},
+    descricao:{pt:"Ferramenta de reconhecimento para pentest em Python: descoberta de hosts via ARP, varredura TCP concorrente, banner grabbing e correlação automática com CVEs via API da NVD/NIST. Gera relatórios em HTML, JSON e CSV.",en:"Python pentest reconnaissance tool: ARP host discovery, concurrent TCP scanning, banner grabbing and automatic CVE correlation via NVD/NIST API. Generates reports in HTML, JSON and CSV."},
+    img:{dark:"netscan.png",light:"netscan.png"},
+    stack:["Python","ThreadPoolExecutor","NVD/NIST API","Pytest","Networking","CVE"],
+    link:"https://github.com/matheusnsp/NetScan", linkLabel:{pt:"código",en:"code"}
+  },
+  {
     titulo:{pt:"Dash — Dashboard Financeiro",en:"Dash — Financial Dashboard"},
     descricao:{pt:"App full stack de finanças pessoais com foco em segurança: autenticação e Row Level Security via Supabase para isolar dados, com deploy automatizado.",en:"Full stack personal finance app focused on security: authentication and Row Level Security via Supabase for data isolation, with automated deploy."},
     img:{dark:"dash.jpeg",light:"dash.jpeg"},
@@ -100,7 +107,7 @@ export const idiomas = [
 ];
 
 export const contatos = [
-  {k:{pt:"E-mail",en:"Email"},v:"matheusnevessp@gmail.com",href:"mailto:matheusnevessp@gmail.com",ic:"mail"},
+  {k:{pt:"E-mail",en:"Email"},v:"matheusn.dev@gmail.com",href:"mailto:matheusn.dev@gmail.com",ic:"mail"},
   {k:"LinkedIn",v:"/in/matheusnsp",href:"https://www.linkedin.com/in/matheusnsp",ic:"linkedin"},
   {k:"GitHub",v:"@matheusnsp",href:"https://github.com/matheusnsp",ic:"github"}
 ];
