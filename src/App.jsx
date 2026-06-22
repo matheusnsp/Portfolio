@@ -103,6 +103,21 @@ export default function App() {
     {
       titulo:
         language === "pt"
+          ? "NetScan - Ferramenta de Reconhecimento para Pentest"
+          : "NetScan - Pentest Reconnaissance Tool",
+      descricao:
+        language === "pt"
+          ? "Ferramenta de reconhecimento para pentest desenvolvida em Python. Executa descoberta de hosts via ARP, varredura de portas TCP com ThreadPoolExecutor, banner grabbing para identificar serviços e versões, e correlação automática com CVEs via API da NVD/NIST. Gera relatórios em HTML, JSON e CSV. Inclui tratamento de rate limit, identificação de fabricante por OUI e cobertura de testes com pytest."
+          : "Python-based pentest reconnaissance tool. Performs host discovery via ARP, concurrent TCP port scanning with ThreadPoolExecutor, banner grabbing for service/version identification, and automatic CVE correlation via NVD/NIST API. Generates reports in HTML, JSON, and CSV. Includes rate limit handling, OUI-based vendor identification, and pytest test coverage.",
+        imagem: darkMode 
+          ? `${import.meta.env.BASE_URL}netscan.png` 
+          : `${import.meta.env.BASE_URL}netscan.png`,
+        link: "https://github.com/matheusnsp/NetScan",
+        linguagens: ["Python", "ThreadPoolExecutor", "NVD/NIST API", "Pytest", "Networking", "CVE"],
+    },
+    {
+      titulo:
+        language === "pt"
           ? "Dash - Dashboard Financeiro"
           : "Dash - Financial Dashboard",
       descricao:
