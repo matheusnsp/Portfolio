@@ -8,6 +8,13 @@ export const projetos = [
     link:"A3_Report.pdf", linkLabel:{pt:"ver relatório",en:"view report"}
   },
   {
+    titulo:{pt:"Cruz Vermelha Brasileira — Sistema de Gestão Escolar",en:"Brazilian Red Cross — School Management System"},
+    descricao:{pt:"Plataforma completa para a Escola de Educação e Saúde da Cruz Vermelha Brasileira — Rio de Janeiro, com inscrições online, pagamentos por PIX e cartão, confirmação automática via webhook e painel administrativo para gestão de cursos, turmas, matrículas, alunos, notas e financeiro.",en:"Full platform for the Brazilian Red Cross School of Education and Health — Rio de Janeiro, with online enrollment, PIX and card payments, automatic payment confirmation via webhook, and an administrative dashboard for managing courses, classes, enrollments, students, grades, and finances."},
+    img:{dark:"cvb.png",light:"cvb.png"},
+    stack:["Node.js","Express","EJS","Prisma","PostgreSQL","Supabase","Unicopag"],
+    link:"https://escola.cursoscruzvermelha.org", linkLabel:{pt:"ao vivo",en:"live"}
+  },
+  {
     titulo:{pt:"INV Botafogo — Página da Igreja",en:"INV Botafogo — Church Website"},
     descricao:{pt:"Site oficial da igreja para centralizar informações e receber novos visitantes. Design responsivo com integração a redes sociais e localização.",en:"Official church website to centralize information and welcome new visitors. Responsive design with social media and location integration."},
     img:{dark:"logo_invbB.png",light:"logo_invbL.png"},
@@ -76,7 +83,7 @@ export const skills = [
 export const experiencias = [
   {
     atual:true,
-    cargo:{pt:"Coordenador de Infraestrutura e Segurança (Voluntário)",en:"IT Infrastructure & Security Coordinator (Volunteer)"},
+    cargo:{pt:"Coordenador de Infraestrutura e Segurança",en:"IT Infrastructure & Security Coordinator"},
     periodo:{pt:"Mar 2026 – Presente",en:"Mar 2026 – Present"},
     org:{pt:"Cruz Vermelha Brasileira — Rio de Janeiro",en:"Brazilian Red Cross — Rio de Janeiro"},
     techs:["Redes L2/L3","IAM","CFTV IP","Segurança de Ativos","Hardware"],

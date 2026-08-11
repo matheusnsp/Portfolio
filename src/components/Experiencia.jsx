@@ -15,8 +15,8 @@ export default function Experiencia({ language }) {
       <div className="experiencia-item">
         <h3>
           {language === "pt"
-            ? "Analista de Infraestrutura e Segurança (Voluntário)"
-            : "IT Infrastructure & Security Analyst (Volunteer)"}
+            ? "Analista de Infraestrutura e Segurança"
+            : "IT Infrastructure & Security Analyst"}
           <span className="periodo"> Mar 2026 – {language === "pt" ? "Presente" : "Present"}</span>
         </h3>
 
