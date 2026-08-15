@@ -84,10 +84,10 @@ export const experiencias = [
   {
     atual:true,
     cargo:{pt:"Coordenador de Infraestrutura e Segurança",en:"IT Infrastructure & Security Coordinator"},
-    periodo:{pt:"Mar 2026 – Presente",en:"Mar 2026 – Present"},
+    periodo:{pt:"Fev 2026 – Presente",en:"Feb 2026 – Present"},
     org:{pt:"Cruz Vermelha Brasileira — Rio de Janeiro",en:"Brazilian Red Cross — Rio de Janeiro"},
     techs:["Redes L2/L3","IAM","CFTV IP","Segurança de Ativos","Hardware"],
-    feitos:{pt:["Auditoria técnica e diagnóstico do parque tecnológico, otimizando inventário e ciclo de vida.","Protocolos de descarte seguro de dados e controle de ativos de armazenamento (HDDs).","Manutenção de conectividade crítica e expansão da rede para novos setores.","Reestruturação do monitoramento remoto e segurança eletrônica, com foco em IAM."],en:["Technical auditing and full diagnostics of the hardware park, optimizing inventory and lifecycle.","Secure data decommissioning protocols and control of storage assets (HDDs).","Critical connectivity maintenance and network expansion for new departments.","Restructured remote monitoring and electronic security, focusing on IAM."]},
+    feitos:{pt:["Auditoria técnica e diagnóstico do parque tecnológico, otimizando inventário e ciclo de vida.","Protocolos de descarte seguro de dados e controle de ativos de armazenamento (HDDs).","Manutenção de conectividade crítica e expansão da rede para novos setores.","Reestruturação do monitoramento remoto e segurança eletrônica, com foco em IAM.","Projeto e desenvolvimento do site institucional e do sistema de gestão administrativa da Escola de Capacitação (Node.js, Express, Prisma, PostgreSQL), hoje em produção com 169 alunos cadastrados."],en:["Technical auditing and full diagnostics of the hardware park, optimizing inventory and lifecycle.","Secure data decommissioning protocols and control of storage assets (HDDs).","Critical connectivity maintenance and network expansion for new departments.","Restructured remote monitoring and electronic security, focusing on IAM.","Designed and built the institutional website and administrative management system for the training school (Node.js, Express, Prisma, PostgreSQL), now in production with 169 registered students."]},
     resultado:{pt:"Modernização da infraestrutura de TI e mitigação de riscos de vazamento de dados.",en:"Modernized IT infrastructure and mitigated data breach risks."}
   },
   {
