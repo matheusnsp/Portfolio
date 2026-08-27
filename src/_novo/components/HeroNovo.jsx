@@ -137,7 +137,7 @@ export default function HeroNovo({ language, darkMode = true }) {
             </motion.span>
           ))}
         </h1>
-        <motion.p className="nv-typed"
+        <motion.p className="nv-typed nv-typed-desktop"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
           <Typewriter words={palavras} loop cursor cursorStyle="_" typeSpeed={55} deleteSpeed={28} delaySpeed={1800} />
         </motion.p>
@@ -150,15 +150,27 @@ export default function HeroNovo({ language, darkMode = true }) {
         <img src={`${import.meta.env.BASE_URL}foto.png`} alt="Matheus Neves" />
       </motion.div>
 
+      <motion.p className="nv-typed nv-typed-mobile"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
+        <Typewriter words={palavras} loop cursor cursorStyle="_" typeSpeed={55} deleteSpeed={28} delaySpeed={1800} />
+      </motion.p>
+
       <motion.div className="nv-cta"
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.25 }}>
         <a href="#nv-projetos" className="nv-btn nv-primary"
           onClick={(e) => { e.preventDefault(); document.getElementById("nv-projetos")?.scrollIntoView({ behavior: "smooth" }); }}>
           {language === "pt" ? "Ver projetos" : "View projects"}
         </a>
-        <a href="#nv-contato" className="nv-btn"
+        <a href="#nv-contato" className="nv-btn nv-outline"
           onClick={(e) => { e.preventDefault(); document.getElementById("nv-contato")?.scrollIntoView({ behavior: "smooth" }); }}>
           {language === "pt" ? "Falar comigo" : "Get in touch"}
+        </a>
+        <a
+          href={`${import.meta.env.BASE_URL}${language === "pt" ? "cv-matheus-neves.pdf" : "resume-matheus-neves.pdf"}`}
+          download
+          className="nv-btn nv-outline"
+        >
+          {language === "pt" ? "Baixar CV" : "Download CV"}
         </a>
       </motion.div>
     </section>

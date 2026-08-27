@@ -67,6 +67,7 @@ html{scroll-behavior:smooth}
 .nv-hero-inner{position:relative;z-index:2;flex:1;min-width:0;order:1;will-change:transform;transition:transform .2s ease-out}
 .nv-hero h1{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:1.4rem}
 .nv-typed{font-family:'Space Mono',monospace;font-size:clamp(1rem,2.2vw,1.4rem);color:var(--nv-muted);margin-bottom:2.4rem;min-height:1.6em}
+.nv-typed-mobile{display:none}
 
 /* botões: sempre lado a lado */
 .nv-cta{display:flex;flex-direction:row;flex-wrap:nowrap;gap:1rem;z-index:2;order:3;flex-basis:100%;margin-top:-15rem}
@@ -74,11 +75,35 @@ html{scroll-behavior:smooth}
   font-weight:600;font-size:1rem;padding:.95rem 1.8rem;border-radius:12px;
   border:1px solid var(--nv-line);cursor:pointer;text-decoration:none;
   color:var(--nv-fg);background:var(--nv-bg2);white-space:nowrap;
-  transition:transform .15s,border-color .2s,box-shadow .2s;
+  transition:transform .15s,border-color .2s,box-shadow .2s,background .2s;
 }
 .nv-btn.nv-primary{background:var(--nv-accent);color:#04130a;border-color:transparent}
 .nv-btn.nv-primary:hover{box-shadow:0 12px 40px -8px rgba(74,222,128,.5)}
 .nv-btn:hover{border-color:var(--nv-accent)}
+
+/* variante outline para o 3º botão do hero (Baixar CV) */
+.nv-btn.nv-outline{
+  background:transparent;
+  border:1px solid var(--nv-accent);
+  color:var(--nv-accent);
+}
+.nv-btn.nv-outline:hover{
+  background:rgba(74,222,128,.1);
+  box-shadow:0 12px 32px -10px rgba(74,222,128,.35);
+  transform:translateY(-2px);
+}
+
+/* variante outline para o 3º botão do hero (Baixar CV) */
+.nv-btn.nv-outline{
+  background:transparent;
+  border:1px solid var(--nv-accent);
+  color:var(--nv-accent);
+}
+.nv-btn.nv-outline:hover{
+  background:rgba(74,222,128,.1);
+  box-shadow:0 12px 32px -10px rgba(74,222,128,.35);
+  transform:translateY(-2px);
+}
 
 /* foto do Hero */
 .nv-hero-foto{position:relative;z-index:2;flex-shrink:0;order:2;max-width:360px;margin-top:10rem}
@@ -358,7 +383,7 @@ html{scroll-behavior:smooth}
   }
 }
 
-/* ---- CELULAR (até 880px): TÍTULO+FRASE -> FOTO -> BOTÕES ---- */
+/* ---- CELULAR (até 880px): TÍTULO -> FOTO -> FRASE -> BOTÕES ---- */
 @media (max-width:880px){
   .nv-hero{
     flex-direction:column;justify-content:flex-start;text-align:center;
@@ -373,8 +398,13 @@ html{scroll-behavior:smooth}
 
   }
   .nv-hero-inner{order:1;max-width:100%;flex:none}
+  .nv-typed-desktop{display:none}
   .nv-hero-foto{order:2;max-width:275px;margin:auto auto 1rem}
-  .nv-cta{order:3;justify-content:center;flex-basis:auto;margin-top:0}
+  .nv-typed-mobile{display:block;order:3;margin:0 auto 1.5rem}
+  .nv-cta{
+    order:4;justify-content:center;flex-basis:auto;margin-top:0;
+    flex-wrap:wrap;
+  }
 
   .nv-head{margin-bottom:2.5rem}
   .nv-grid,.nv-certgrid,.nv-contatos{grid-template-columns:1fr}
@@ -412,9 +442,9 @@ html{scroll-behavior:smooth}
   .nv-controls{top:.6rem;right:.6rem}
 }
 
-/* ---- TELAS BEM ESTREITAS: botões lado a lado sem estourar ---- */
+/* ---- TELAS BEM ESTREITAS ---- */
 @media (max-width:400px){
-  .nv-cta .nv-btn{padding:.8rem 1.1rem;font-size:.9rem}
+  .nv-cta .nv-btn{padding:.85rem 1.1rem;font-size:.92rem}
   .nv-meta .nv-v{font-size:.76rem}
   .nv-hero-foto{max-width:275px;margin:1.5rem auto}
   .nv-hero-inner h1{font-size:1.7rem}
