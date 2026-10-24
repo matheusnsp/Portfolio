@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Matheus Neves">
+  <path d="M22 62V22H62M138 22H178V62M178 138V178H138M62 178H22V138" fill="none" stroke="#16202E" stroke-width="7" stroke-linecap="square"/>
+  <path d="M100 196V182M4 100H18M196 100H182" fill="none" stroke="#16202E" stroke-width="5" stroke-linecap="square" opacity=".55"/>
+  <path d="M100 4V18" fill="none" stroke="#C47A2C" stroke-width="5" stroke-linecap="square"/>
+  <path d="M52 140V60L84 111.2L116 60V140M116 60L148 140V60" fill="none" stroke="#16202E" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
