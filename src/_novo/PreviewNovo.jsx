@@ -20,6 +20,11 @@ export default function PreviewNovo() {
   const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
+    document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
+    document.title = language === "pt" ? "Matheus Neves | Portfólio" : "Matheus Neves | Portfolio";
+  }, [language]);
+
+  useEffect(() => {
     const sel = ".nv-card, .nv-cert, .nv-expcard, .nv-chip, .nv-contact, .nv-idioma, .nv-stat";    const onMove = (e) => {
       const card = e.target.closest(sel);
       if (!card) return;
