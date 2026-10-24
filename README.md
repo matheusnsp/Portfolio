@@ -1,162 +1,84 @@
-# 🌐 Portfólio - Matheus Neves Soares Pereira
+# Portfólio · Matheus Neves
 
-Bem-vindo ao meu portfólio profissional! Este site foi desenvolvido para apresentar minha trajetória como desenvolvedor de software, destacando meus projetos, certificações, experiências e habilidades de forma interativa e moderna.
+Site pessoal de Matheus Neves, desenvolvedor full stack com foco em cibersegurança e IA.
 
-## 🔗 Link do Site
+👉 **[www.matheusnsp.com.br](https://www.matheusnsp.com.br)**
 
-👉 [Acesse o Portfólio Online](https://www.matheusnsp.com.br)
-
----
-
-## 📸 Captura de Tela
-
-![Screenshot](./public/portfolioB.png)
+![Página inicial do portfólio](./public/img/portfolio.webp)
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## O que tem no site
 
-* **React** — biblioteca principal para construção da interface
-* **Vite** — ferramenta de build rápida e moderna
-* **Framer Motion** — animações suaves e interativas
-* **JavaScript, HTML5, CSS3** — base da construção web
-* **GitHub Pages** — hospedagem gratuita do site
-* **Responsive Design** — otimizado para dispositivos móveis e desktops
-* **Modo Claro/Escuro** — suporte dinâmico de tema com persistência via `localStorage`
+* **Retrato em partículas (WebGL):** a foto vira milhares de pontos que reagem ao mouse e se espalham em uma galáxia ao rolar a página
+* **Rolagem suave e animações por cena:** texto que acende palavra por palavra, contadores, linhas que se desenham
+* **Trajetória em capítulos:** Canberra → Robot De Niro → Cruz Vermelha → próximo capítulo
+* **7 projetos com estudo de caso:** cada projeto abre em tela cheia com contexto, o que foi feito, resultado, tecnologias e links (navegação por setas e teclado)
+* **PT / EN:** todo o conteúdo, o título da aba e o currículo trocam de idioma; a escolha fica salva no navegador
+* **Pensado para qualquer tela:** o retrato se ajusta do celular à tela ultralarga
+* **Instalável como app:** ícones e `site.webmanifest` para adicionar à tela inicial
+* **Acessível:** respeita `prefers-reduced-motion` (sem animações pesadas) e funciona por teclado
 
----
+## Tecnologias
 
-## ✨ Funcionalidades
+* **Vite** para desenvolvimento e build
+* **Three.js** para o retrato em partículas
+* **GSAP + ScrollTrigger** para as animações
+* **Lenis** para a rolagem suave
+* HTML, CSS e JavaScript, sem framework
+* Hospedagem na **Vercel**
 
-* Alternância entre idiomas (Português/Inglês)
-* Transições animadas ao rolar a página
-* Seções dinâmicas: Projetos, Experiências, Certificações, Skills e Contato
-* Efeito máquina de escrever para apresentação inicial
-* Dark Mode com tema persistente
-* Deploy automatizado via GitHub Pages
+## Rodar localmente
 
----
-
-## 🚀 Como Rodar Localmente
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/matheusnsp/Portfolio.git
-   cd Portfolio
-   ```
-
-2. Instale as dependências:
-
-   ```bash
-   npm install
-   ```
-
-3. Execute localmente:
-
-   ```bash
-   npm run dev
-   ```
-
-4. Acesse no navegador:
-
-   ```
-   http://localhost:5173
-   ```
-
----
-
-## 🔄 Deploy para GitHub Pages
-
-Este projeto utiliza Vite, e a publicação está configurada para o GitHub Pages no branch `gh-pages`.
-
-### Scripts:
-
-* Build:
-
-  ```bash
-  npm run build
-  ```
-
-* Deploy:
-
-  ```bash
-  npm run deploy
-  ```
-
-### Configuração em `vite.config.js`:
-
-```js
-export default defineConfig({
-  base: '/Portfolio/',  // Caminho correto do repositório
-  plugins: [react()],
-});
+```bash
+git clone https://github.com/matheusnsp/Portfolio.git
+cd Portfolio
+npm install
+npm run dev
 ```
 
----
+Abra `http://localhost:5173`.
 
-## 📊 Carregamento de Imagens com Vite
+Para gerar a versão de produção: `npm run build` (a saída fica em `dist/`).
 
-### Opção 1: Usando a pasta `public/` e `import.meta.env.BASE_URL`
+## Publicação
 
-Ideal para imagens como fotos, logos e arquivos PDF que você quer acessar diretamente pelo navegador.
+A Vercel publica sozinha a cada push na branch `main`. Não é preciso rodar nenhum comando de deploy.
 
-```js
-const baseURL = import.meta.env.BASE_URL;
-const imagem = `${baseURL}foto.jpg`;
-```
+## Onde editar
 
-No JSX:
+| O quê | Onde |
+| --- | --- |
+| Textos em PT/EN (menu, sobre, números, contato) | objeto `T` em `src/site/main.js` |
+| Capítulos da trajetória | `CHAPTERS` em `src/site/main.js` |
+| Projetos e estudos de caso | `PROJECTS` em `src/site/main.js` |
+| Habilidades (seção Arsenal) | `KIT` em `src/site/main.js` |
+| Estrutura da página | `index.html` |
+| Estilos | `src/site/style.css` |
+| Imagens dos projetos e retrato | `public/img/` |
+| Currículos e relatório | `public/cv-matheus-neves.pdf`, `public/resume-matheus-neves.pdf`, `public/A3_Report.pdf` |
+| Logo, favicon e ícones de app | `public/logo.svg`, `public/icons/`, `public/site.webmanifest` |
 
-```jsx
-<img src={`${import.meta.env.BASE_URL}foto.jpg`} alt="Matheus Neves" />
-```
+**Retrato:** `public/img/retrato.webp` é a foto já recortada, sem fundo e com a base do terno esmaecida. Para trocar a foto, gere uma imagem no mesmo formato (PNG/WebP com transparência, rosto no terço de cima).
 
-### Opção 2: Usando `src/assets/` e import direto
-
-Mais segura e recomendada para imagens usadas apenas no código.
-
-```js
-import foto from './assets/foto.jpg';
-
-<img src={foto} alt="Matheus Neves" />
-```
-
----
-
-## 📂 Estrutura de Pastas
+## Estrutura
 
 ```
-/public
-  ├─ foto.jpg
-  ├─ logo.png
-  ├─ portfolioL.png
-  └─ portfolioB.png
-/src
-  ├─ components/
-  ├─ App.jsx
-  └─ index.css
-vite.config.js
-package.json
-README.md
+index.html            página (conteúdo, metatags e ícones)
+src/site/main.js      retrato WebGL, animações, PT/EN, projetos
+src/site/style.css    estilos
+public/img/           retrato, prints dos projetos e imagem de compartilhamento
+public/icons/         favicon e ícones de app
 ```
 
----
+O app React anterior continua em `src/App.jsx` e `src/_novo/` apenas como referência; ele não é mais usado pela página.
 
-## 📄 Licença
+## Contato
 
-Este projeto é de uso pessoal e está disponível apenas como referência para fins educacionais e profissionais. Para mais informações, entre em contato comigo.
-
----
-
-## 👨‍💻 Sobre Mim
-
-Sou Matheus Neves, desenvolvedor de software com ênfase em aplicações modernas e seguras. Tenho experiência em desenvolvimento full stack, cibersegurança e integração de IA. Confira meu portfólio completo no site acima.
-
----
-
-## 📢 Contato
-
-* Email: [matheusnevessp@gmail.com](mailto:matheusnevessp@gmail.com)
+* E-mail: [matheusn.dev@gmail.com](mailto:matheusn.dev@gmail.com)
 * LinkedIn: [linkedin.com/in/matheusnsp](https://www.linkedin.com/in/matheusnsp)
 * GitHub: [github.com/matheusnsp](https://github.com/matheusnsp)
+
+## Licença
+
+Projeto de uso pessoal, disponível apenas como referência. Para outros usos, entre em contato.
