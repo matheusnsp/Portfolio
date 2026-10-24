@@ -11,6 +11,9 @@ import './style.css';
   const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const PHOTO = "/img/retrato.webp";
   gsap.registerPlugin(ScrollTrigger);
+  // sempre abre no topo, com o retrato montado
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  scrollTo(0, 0);
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   /* ================= conteúdo PT/EN ================= */
@@ -317,7 +320,7 @@ import './style.css';
   const uniforms = {
     uTime: { value: 0 }, uAssemble: { value: REDUCED ? 1 : 0 }, uDisperse: { value: 0 },
     uMouse: { value: new Vector3(99, 99, 0) }, uSize: { value: innerWidth < 900 ? 15 : 12 },
-    uPR: { value: Math.min(devicePixelRatio, innerWidth < 900 ? 1.5 : 2) }, uOpacity: { value: 1 }
+    uPR: { value: Math.min(devicePixelRatio, innerWidth < 900 ? 1.25 : 1.5) }, uOpacity: { value: 1 }
   };
   let renderer, scene, camera, points, sceneOn = true;
   const mouse = { x: 99, y: 99, tx: 99, ty: 99 };
@@ -452,8 +455,11 @@ import './style.css';
   });
   document.addEventListener('pointerleave', () => { mouse.tx = 99; mouse.ty = 99; });
 
+  // fora do hero o retrato já virou galáxia de fundo: 30 quadros por segundo bastam
+  let tick = 0;
   gsap.ticker.add(time => {
-    if (!renderer || !points || !sceneOn) return;
+    if (!renderer || !points || !sceneOn || document.hidden) return;
+    if (uniforms.uDisperse.value > 0.98 && (tick++ & 1)) return;
     uniforms.uTime.value = time;
     if (mouse.tx > 50) { mouse.x = mouse.tx; mouse.y = mouse.ty; }
     else { mouse.x += (mouse.tx - mouse.x) * .12; mouse.y += (mouse.ty - mouse.y) * .12; }
@@ -498,9 +504,10 @@ import './style.css';
 
   if (!REDUCED) {
     gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 } })
-      .to(uniforms.uDisperse, { value: 1, ease: 'none' }, 0)
+      // começa devagar: rolar um pouco não desmancha o rosto
+      .to(uniforms.uDisperse, { value: 1, ease: 'power3.in' }, 0)
       .to(uniforms.uOpacity, { value: .45, ease: 'none' }, 0)
-      .to(camera ? camera.position : {}, { z: 3.6, ease: 'none' }, 0)
+      .to(camera ? camera.position : {}, { z: 3.6, ease: 'power2.in' }, 0)
       .to('.hero h1', { yPercent: -30, opacity: 0, ease: 'none' }, 0)
       .to('.hero-foot, .hero-meta', { opacity: 0, ease: 'none' }, 0);
 
@@ -588,7 +595,11 @@ import './style.css';
     gsap.to(preview, { opacity: 1, scale: 1, rotate: -2, duration: .5, ease: 'power3.out', overwrite: 'auto' });
     requestAnimationFrame(placePreview);
   };
+  // só procura linha sob o cursor enquanto a seção de projetos está na tela
+  let workVisible = false;
+  new IntersectionObserver(([e]) => { workVisible = e.isIntersecting; if (!workVisible) hidePreview(); }).observe($('#rows'));
   const checkPreview = () => {
+    if (!workVisible) return;
     if (!caseEl.hidden) return hidePreview();
     const el = ptrX < 0 ? null : document.elementFromPoint(ptrX, ptrY);
     const row = el && el.closest ? el.closest('#rows [data-open]') : null;
@@ -603,9 +614,11 @@ import './style.css';
 
   /* ================= título do contato reage ao cursor ================= */
   if (FINE && !REDUCED) {
-    let raf = 0, mx = -1e4, my = -1e4;
+    let raf = 0, mx = -1e4, my = -1e4, bigVisible = false;
+    new IntersectionObserver(([e]) => { bigVisible = e.isIntersecting; }).observe($('#big'));
     const paint = () => {
       raf = 0;
+      if (!bigVisible) return;
       $$('#big .l').forEach(l => {
         const r = l.getBoundingClientRect();
         const t = Math.max(0, 1 - Math.hypot(mx - (r.left + r.width / 2), my - (r.top + r.height / 2)) / 320);
@@ -613,7 +626,7 @@ import './style.css';
         l.style.color = t > .55 ? 'var(--amber)' : '';
       });
     };
-    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(paint); });
+    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (bigVisible && !raf) raf = requestAnimationFrame(paint); });
   }
 
   /* ================= cursor e botões magnéticos ================= */
