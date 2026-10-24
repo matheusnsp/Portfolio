@@ -46,7 +46,7 @@ export default function HeaderNovo({ language, darkMode, onToggleTheme, onToggle
         ref={menuRef}
       >
         <a href="#nv-hero" className="nv-header-logo" onClick={(e) => irPara(e, "nv-hero")}>
-          <img src={darkMode ? "./logo.svg" : "./logo-light.svg"} alt="Matheus Neves" className="nv-logo-img" />
+          <span className="nv-logo-text">Matheus Neves</span>
         </a>
         <nav className="nv-header-nav">
           {links.map((l) => (
@@ -95,7 +95,7 @@ export default function HeaderNovo({ language, darkMode, onToggleTheme, onToggle
             >
               <div className="nv-drawer-header">
               <span className="nv-header-logo">
-                <img src={darkMode ? "./logo.svg" : "./logo-light.svg"} alt="Matheus Neves" className="nv-logo-img" />
+                <span className="nv-logo-text">Matheus Neves</span>
               </span>              
                   <button className="nv-hamburger nv-hamburger-close" onClick={() => setMenuOpen(false)} aria-label="Fechar menu">
                   <span className="nv-ham-line nv-ham-open" />

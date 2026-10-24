@@ -126,11 +126,14 @@ html{scroll-behavior:smooth}
   flex-shrink: 0;
 }
 
-.nv-logo-img {
-  height: 44px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+.nv-logo-text {
+  font-family: 'Sora', -apple-system, sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--nv-fg);
+  white-space: nowrap;
+  line-height: 44px;
 }
 
 /* ===== 4. PROJETOS ===== */
@@ -374,8 +377,8 @@ html{scroll-behavior:smooth}
   .nv-hero{padding:0 5vw;gap:2rem}
   .nv-hero-foto{max-width:300px}
   .nv-cta{margin-top:-20rem}
-  .nv-logo-img {
-    height: 40px;
+  .nv-logo-text {
+    font-size: 1.1rem;
   }
   .nv-header{
       border-bottom:1px solid var(--nv-line);
@@ -425,9 +428,7 @@ html{scroll-behavior:smooth}
   .nv-meta{flex:1;min-width:0}
   .nv-meta .nv-v{font-size:.82rem}
 
-  .nv-logo-img {
-    display:none
-  }
+
 
 }
 
