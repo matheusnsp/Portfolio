@@ -7,7 +7,10 @@ import Lenis from 'lenis';
 import './style.css';
 
 (() => {
-  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // "Reduzir movimento" do sistema: o retrato e as transições continuam (a explosão segue a rolagem),
+  // mas saem os movimentos contínuos e decorativos (rolagem suavizada, cursor, botões magnéticos)
+  const PREFERS_REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const REDUCED = false;
   const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const PHOTO = "/img/retrato.webp";
   gsap.registerPlugin(ScrollTrigger);
@@ -303,7 +306,7 @@ import './style.css';
 
   /* ================= rolagem suave ================= */
   let lenis = null;
-  if (!REDUCED) {
+  if (!PREFERS_REDUCED) {
     lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -455,8 +458,9 @@ import './style.css';
     if (innerWidth === lastW && Math.abs(innerHeight - lastH) < 140) return;
     lastW = innerWidth; lastH = innerHeight; layout();
   });
+  // as partículas reagem só ao mouse; em telas de toque o dedo não mexe no retrato
   addEventListener('pointermove', e => {
-    if (!camera) return;
+    if (!camera || e.pointerType !== 'mouse' || !FINE) return;
     const nx = e.clientX / innerWidth * 2 - 1, ny = -(e.clientY / innerHeight) * 2 + 1;
     const halfH = Math.tan(MathUtils.degToRad(17.5)) * 5;
     mouse.tx = nx * halfH * camera.aspect; mouse.ty = ny * halfH;
@@ -627,7 +631,7 @@ import './style.css';
   }
 
   /* ================= título do contato reage ao cursor ================= */
-  if (FINE && !REDUCED) {
+  if (FINE && !PREFERS_REDUCED) {
     let raf = 0, mx = -1e4, my = -1e4, bigVisible = false;
     new IntersectionObserver(([e]) => { bigVisible = e.isIntersecting; }).observe($('#big'));
     const paint = () => {
@@ -644,7 +648,7 @@ import './style.css';
   }
 
   /* ================= cursor e botões magnéticos ================= */
-  if (FINE && !REDUCED) {
+  if (FINE && !PREFERS_REDUCED) {
     document.body.classList.add('has-cursor');
     const cur = $('#cursor'), dot = cur.querySelector('.dot'), ring = cur.querySelector('.ring');
     const dx = gsap.quickTo(dot, 'x', { duration: .12 }), dy = gsap.quickTo(dot, 'y', { duration: .12 });
