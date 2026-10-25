@@ -321,9 +321,13 @@ import './style.css';
   const uniforms = {
     uTime: { value: 0 }, uAssemble: { value: REDUCED ? 1 : 0 }, uDisperse: { value: 0 },
     uMouse: { value: new Vector3(99, 99, 0) }, uSize: { value: innerWidth < 900 ? 15 : 12 },
-    uPR: { value: Math.min(devicePixelRatio, innerWidth < 900 ? 1.25 : 1.5) }, uOpacity: { value: 1 }
+    uPR: { value: Math.min(devicePixelRatio, innerWidth < 900 ? 1.25 : 1.5) }, uOpacity: { value: 1 },
+    // brilho das partículas: mais baixo no celular, onde o retrato fica atrás do nome
+    uBright: { value: innerWidth < 900 ? 0.55 : 0.7 }
   };
   let renderer, scene, camera, points, sceneOn = true;
+  // plano B: sem WebGL (ou se ele falhar), mostra a imagem fixa do retrato em partículas
+  const showFallback = () => { document.documentElement.classList.add('no-webgl'); sceneOn = false; };
   const mouse = { x: 99, y: 99, tx: 99, ty: 99 };
   try {
     renderer = new WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' });
@@ -332,6 +336,8 @@ import './style.css';
     scene = new Scene();
     camera = new PerspectiveCamera(35, 1, 0.1, 100);
     camera.position.z = 5;
+    renderer.debug.onShaderError = () => showFallback();
+    canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); showFallback(); });
   } catch (e) { renderer = null; }
 
   // encaixa o retrato na tela: altura em unidades do mundo e posição, para qualquer proporção
@@ -365,6 +371,7 @@ import './style.css';
       y = (viewH / 2 - nav - ph / 2 + (-viewH / 2 + ph / 2)) / 2;
     }
     points.scale.setScalar(ph / PORTRAIT_H);
+    uniforms.uBright.value = w < 900 ? 0.55 : 0.7;
     points.position.set(x, y, 0);
   };
 
@@ -430,12 +437,12 @@ import './style.css';
           vColor = aColor; vGlow = f;
         }`,
       fragmentShader: `
-        uniform float uOpacity;
+        uniform float uOpacity, uBright;
         varying vec3 vColor; varying float vGlow;
         void main(){
           float d = length(gl_PointCoord - .5); if (d > .5) discard;
           float a = smoothstep(.5, .05, d);
-          gl_FragColor = vec4(vColor + vGlow * .25, a * .9 * uOpacity);
+          gl_FragColor = vec4((vColor + vGlow * .25) * uBright, a * .9 * uOpacity);
         }`
     });
     points = new Points(geo, mat);
@@ -471,7 +478,13 @@ import './style.css';
   });
 
   /* ================= abertura ================= */
-  const loadImg = new Promise(res => { const img = new Image(); img.onload = () => res(img); img.onerror = () => res(null); img.src = PHOTO; });
+  // WebP com reserva em PNG para navegadores antigos
+  const loadImg = new Promise(res => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = () => { img.onerror = () => res(null); img.src = PHOTO.replace('.webp', '.png'); };
+    img.src = PHOTO;
+  });
   const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
   const intro = () => {
     gsap.timeline()
@@ -480,7 +493,7 @@ import './style.css';
       .from('.hero-meta span, .reveal, .nav > *', { y: 18, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.05 }, 0.5);
   };
   if (REDUCED) {
-    loadImg.then(img => { if (img && renderer) buildPortrait(img); });
+    loadImg.then(img => { if (img && renderer) buildPortrait(img); else showFallback(); });
   } else {
     const counter = { v: 0 }, countEl = $('#count'), bar = $('#bar');
     lenis && lenis.stop();
@@ -488,7 +501,7 @@ import './style.css';
     const counting = gsap.to(counter, { v: 100, duration: 1.8, ease: 'power2.inOut',
       onUpdate: () => { countEl.textContent = String(Math.round(counter.v)).padStart(3, '0'); bar.style.transform = `scaleX(${counter.v / 100})`; } });
     Promise.all([loadImg, fontsReady, new Promise(r => counting.eventCallback('onComplete', r))]).then(([img]) => {
-      if (img && renderer) buildPortrait(img);
+      if (img && renderer) buildPortrait(img); else showFallback();
       gsap.timeline({ onComplete: () => { $('#loader').style.display = 'none'; lenis && lenis.start(); ScrollTrigger.refresh(); } })
         .to('#loader', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'expo.inOut' })
         .add(intro, '-=0.45');
@@ -507,7 +520,7 @@ import './style.css';
     gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 } })
       // começa devagar: rolar um pouco não desmancha o rosto
       .to(uniforms.uDisperse, { value: 1, ease: 'power3.in' }, 0)
-      .to(uniforms.uOpacity, { value: .45, ease: 'none' }, 0)
+      .to(uniforms.uOpacity, { value: .3, ease: 'none' }, 0)
       .to(camera ? camera.position : {}, { z: 3.6, ease: 'power2.in' }, 0)
       .to('.hero h1', { yPercent: -30, opacity: 0, ease: 'none' }, 0)
       .to('.hero-foot, .hero-meta', { opacity: 0, ease: 'none' }, 0);
