@@ -253,5 +253,5 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   .case-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){
-  .grain,.marquee div,.status i,.scroll-hint span::after{animation:none}
+  .grain,.status i,.scroll-hint span::after{animation:none}
 }
