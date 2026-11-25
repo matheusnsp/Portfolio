@@ -624,7 +624,7 @@ import './style.css';
     row ? showPreview(row) : hidePreview();
   };
   if (FINE) {
-    addEventListener('pointermove', e => { ptrX = e.clientX; ptrY = e.clientY; checkPreview(); });
+    addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; ptrX = e.clientX; ptrY = e.clientY; checkPreview(); });
     let frame = 0;
     gsap.ticker.add(() => { if (ptrX >= 0 && (frame++ & 1) === 0) checkPreview(); });
     document.addEventListener('pointerleave', () => { ptrX = -1; hidePreview(); });
@@ -644,7 +644,7 @@ import './style.css';
         l.style.color = t > .55 ? 'var(--amber)' : '';
       });
     };
-    addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (bigVisible && !raf) raf = requestAnimationFrame(paint); });
+    addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; mx = e.clientX; my = e.clientY; if (bigVisible && !raf) raf = requestAnimationFrame(paint); });
   }
 
   /* ================= cursor e botões magnéticos ================= */
@@ -653,14 +653,14 @@ import './style.css';
     const cur = $('#cursor'), dot = cur.querySelector('.dot'), ring = cur.querySelector('.ring');
     const dx = gsap.quickTo(dot, 'x', { duration: .12 }), dy = gsap.quickTo(dot, 'y', { duration: .12 });
     const rx = gsap.quickTo(ring, 'x', { duration: .55, ease: 'power3' }), ry = gsap.quickTo(ring, 'y', { duration: .55, ease: 'power3' });
-    addEventListener('pointermove', e => { dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); });
+    addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); });
     document.addEventListener('pointerover', e => {
       cur.classList.toggle('is-view', !!e.target.closest('[data-view]'));
       cur.classList.toggle('is-link', !e.target.closest('[data-view]') && !!e.target.closest('a, button'));
     });
     $$('[data-magnet]').forEach(el => {
       const mx = gsap.quickTo(el, 'x', { duration: .6, ease: 'elastic.out(1,.4)' }), my = gsap.quickTo(el, 'y', { duration: .6, ease: 'elastic.out(1,.4)' });
-      el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); mx((e.clientX - r.left - r.width / 2) * .35); my((e.clientY - r.top - r.height / 2) * .35); });
+      el.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; const r = el.getBoundingClientRect(); mx((e.clientX - r.left - r.width / 2) * .35); my((e.clientY - r.top - r.height / 2) * .35); });
       el.addEventListener('pointerleave', () => { mx(0); my(0); });
     });
   }
